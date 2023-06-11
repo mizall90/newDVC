@@ -1,0 +1,6 @@
+[core]
+    remote = test-dvcremote
+['remote "myremote"']
+    url = /tmp/dvcstore
+['remote "test-dvcremote"']
+    url = /local-dvcstore
