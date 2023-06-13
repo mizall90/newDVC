@@ -1,6 +1,10 @@
 [core]
-    remote = test-dvcremote
+    remote = wine_remote
 ['remote "myremote"']
     url = /tmp/dvcstore
 ['remote "test-dvcremote"']
     url = /local-dvcstore
+['remote "local"']
+    url = ../dvc-remote
+['remote "wine_remote"']
+    url = ../dvc-remote
