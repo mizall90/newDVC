@@ -54,10 +54,19 @@
 - `dvc update data/data.csv.dvc` Checks the newest data version and downloads
 
 ### Get Data Using Python API
+- Please check notebook directory for more reference
 ```
-import dvc.api
-import pandas as pd
-with dvc.api.open("wine/datasets/actual.csv", repo="https://github.com/mizall90/newDVC") as fd:
-    df = pd.read_csv(fd)
-    print(df)
+from dvc.api import DVCFileSystem
+
+# Load file system
+fs = DVCFileSystem("../dvc-remote")
+
+# Find DVC tracked files
+fs.find("/", detail=False, dvc_only=True)
+
+# Download file from filesystem
+fs.get_file("/data/data.csv", "./data/data.csv")
+
+# Download directory
+fs.get("/wine", "wine", recursive=True)
 ```
